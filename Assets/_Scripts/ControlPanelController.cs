@@ -37,15 +37,12 @@ public class ControlPanelController : MonoBehaviour
         timer = 0.0f;
 
         // deserializing the json scene data and assigning to scene data from player preferences
-        var sceneDataJSON = PlayerPrefs.GetString("playerData");
+        //var sceneDataJSON = PlayerPrefs.GetString("playerData");
 
-        Debug.Log(sceneDataJSON);
-
-        JsonUtility.FromJsonOverwrite(sceneDataJSON, sceneData);
+        //JsonUtility.FromJsonOverwrite(sceneDataJSON, sceneData);
 
         loadGameData();
 
-        //sceneData = JsonUtility.FromJson<SceneDataSO>(sceneDataJSON);
     }
 
     // Update is called once per frame
@@ -138,6 +135,8 @@ public class ControlPanelController : MonoBehaviour
 
     public void loadGameData()
     {
+        //sceneData = JsonUtility.FromJson<SceneDataSO>(sceneDataJSON);
+
         // getting player position from player preferences
         sceneData.playerPosition.x = PlayerPrefs.GetFloat("playerTransformX");
         sceneData.playerPosition.y = PlayerPrefs.GetFloat("playerTransformY");
@@ -155,6 +154,7 @@ public class ControlPanelController : MonoBehaviour
 
     public void saveGameData()
     {
+        // setting individual properties in player prefs
         // setting player position in player preferences
         PlayerPrefs.SetFloat("playerTransformX", sceneData.playerPosition.x);
         PlayerPrefs.SetFloat("playerTransformY", sceneData.playerPosition.y);
